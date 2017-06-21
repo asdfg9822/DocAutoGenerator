@@ -1,2 +1,1 @@
-# DocAutoGenerator
-문서 자동화 시스템
+# polymer-doc-generator
