@@ -7,6 +7,8 @@
  */
 const fs = require('fs');
 const _ = require('underscore');
+const path = require('path');
+const excel = require("./lib/excel-exporter").create();
 
 /**
  * Custom Module
@@ -111,7 +113,16 @@ function writeTemplate(targetEles, outputDir) {
                 });
             }
 
-            //Template Array iterator
+            var tpl = path.join(__dirname, 'examples', 'template_base.xlsx');
+            var tplOut = path.join(__dirname, 'template_out.xlsx');
+
+            elementList.forEach(function (element, idx) {
+                excel.export([{name: "ele", value: element}], tpl, path.join(__dirname, 'output',`template_out${idx}.xlsx`), function () {
+                    console.log('OK');
+                });
+            });
+
+           /* //Template Array iterator
             [
                 //Snippet
                 {dataObj: webstormTmp(elementList), filename: "webstorm-polymer.xml"},
@@ -126,6 +137,6 @@ function writeTemplate(targetEles, outputDir) {
                     if (err) throw err;
                     console.log(obj.filename, 'file has been saved!');
                 });
-            });
+            });*/
         });
 };

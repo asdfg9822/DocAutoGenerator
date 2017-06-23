@@ -16,12 +16,46 @@
     "url": "https://github.com/asdfg9822/polymer-doc-generator/issues"
   },
   "homepage": "https://github.com/asdfg9822/polymer-doc-generator#readme",
+  "keywords": [
+    "excel",
+    "xls",
+    "xlsx",
+    "jxls",
+    "java-excel",
+    "excel-java"
+  ],
+  "files": [
+    "lib",
+    "excel-exporter.js"
+  ],
   "dependencies": {
     "command-line-args": "^4.0.6",
     "command-line-usage": "^4.0.0",
     "hydrolysis": "^1.25.0",
     "line-column": "^1.0.2",
     "polymer-analyzer": "^2.1.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "async": "^1.5.2",
+    "java": "^0.7.0",
+    "node-java-maven": "^0.0.12"
+  },
+  "java": {
+    "dependencies": [
+      {
+        "groupId": "net.sf.jxls",
+        "artifactId": "jxls-core",
+        "version": "1.0.6"
+      },
+      {
+        "groupId": "net.sf.jxls",
+        "artifactId": "jxls-reader",
+        "version": "1.0.6"
+      },
+      {
+        "groupId": "commons-io",
+        "artifactId": "commons-io",
+        "version": "2.1"
+      }
+    ]
   }
 }
