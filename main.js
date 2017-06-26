@@ -119,6 +119,18 @@ function writeTemplate(targetEles, outputDir) {
             elementList.forEach(function (element, idx) {
                 excel.export([{name: "ele", value: element}], tpl, path.join(__dirname, 'output',`template_out${idx}.xlsx`), function () {
                     console.log('OK');
+
+                    //Save element JSON File
+                    let versionDir = path.join(outputDir, 'version');
+                    if(!fs.existsSync(versionDir)) {
+                        fs.mkdirSync(versionDir);
+                    }
+                    try {
+                        fs.writeFile(versionDir + '/' + `${element.is || "noName"}_${new Date().getTime()}.json`, JSON.stringify(element), 'utf8');
+                    } catch(e) {
+                        fs.writeFile(versionDir + '/' + `${element.is}_${new Date().getTime()}_error.json`, JSON.stringify(element), 'utf8');
+                    }
+
                 });
             });
 

@@ -58,3 +58,9 @@ FTP를 이용해서 필요에 따라 계속적으로 파일을 올려주는 방�
 2) 별도로 프로그램을 실행시키면 그때 프로그램에서 버전관리 시스템의 소스를 갱신하고
 Update된 소스를 분석하는 것도 하나의 방법이라고 생각된다.
 ```
+
+docker에서 File을 복사하는 명령어를 쓸 수 있었다.
+
+```
+docker copy /source/file/path /destination/dir/path
+```
